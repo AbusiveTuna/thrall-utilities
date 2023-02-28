@@ -1,4 +1,4 @@
-package com.tuna.toa;
+package com.tuna.thrall;
 
 import java.awt.Dimension;
 import java.awt.Graphics2D;
