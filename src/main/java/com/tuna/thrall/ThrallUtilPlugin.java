@@ -14,15 +14,15 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Example"
+	name = "ThrallUtil"
 )
-public class ExamplePlugin extends Plugin
+public class ThrallUtilPlugin extends Plugin
 {
 	@Inject
 	private Client client;
 
 	@Inject
-	private ExampleConfig config;
+	private ThrallUtilConfig config;
 
 	@Override
 	protected void startUp() throws Exception
@@ -39,15 +39,12 @@ public class ExamplePlugin extends Plugin
 	@Subscribe
 	public void onGameStateChanged(GameStateChanged gameStateChanged)
 	{
-		if (gameStateChanged.getGameState() == GameState.LOGGED_IN)
-		{
-			client.addChatMessage(ChatMessageType.GAMEMESSAGE, "", "Example says " + config.greeting(), null);
-		}
+
 	}
 
 	@Provides
-	ExampleConfig provideConfig(ConfigManager configManager)
+	ThrallUtilConfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(ExampleConfig.class);
+		return configManager.getConfig(ThrallUtilConfig.class);
 	}
 }
