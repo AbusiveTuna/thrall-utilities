@@ -20,26 +20,65 @@ public class ThrallUtilPlugin extends Plugin
 {
 	@Inject
 	private Client client;
-
+	
 	@Inject
 	private ThrallUtilConfig config;
+	
+	@Inject
+	private ThrallUtilOverlay overlay;
+
+	@Inject
+	private OverlayManager overlayManager;
 
 	@Override
 	protected void startUp() throws Exception
 	{
-		log.info("Example started!");
+		overlayManager.add(overlay);
 	}
 
 	@Override
 	protected void shutDown() throws Exception
 	{
-		log.info("Example stopped!");
+		overlayManager.remove(overlay);
+		reset();
 	}
+	
+	@Subscribe
+	public void onGameTick(GameTick e)
+	{
+		LocalPoint lp = client.getLocalPlayer().getLocalLocation();
+		int newRegionID = lp == null ? -1 : WorldPoint.fromLocalInstance(client, lp).getRegionID();
+		
+		ThrallRegion newRegion = ThrallRegion.fromRegionID(newRegionID);
+		
+		if(newRegion != null){
+			//set something to true i guess?
+		}
+		
+	}
+	
+	@Subscribe
+	public void onActorDeath(ActorDeath actorDeath)
+	{
+	
+	}
+	
+	@Subscribe
+	public void onHitsplatApplied(HitsplatApplied hitsplatApplied)
+	{
+	
+	}
+	
 
 	@Subscribe
 	public void onGameStateChanged(GameStateChanged gameStateChanged)
 	{
 
+	}
+	
+	public void reset()
+	{
+	
 	}
 
 	@Provides
