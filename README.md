@@ -1,2 +1,2 @@
-# Example
-An example greeter plugin
+# Thrall Utilities  
+An all in one utility for thralls
