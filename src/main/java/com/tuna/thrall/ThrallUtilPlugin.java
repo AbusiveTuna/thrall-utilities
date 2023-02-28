@@ -76,6 +76,18 @@ public class ThrallUtilPlugin extends Plugin
 
 	}
 	
+	@Subscribe
+	public void onChatMessage(ChatMessage event)
+	{
+	
+	}
+	
+	@Subscribe
+	public void onMenuOptionClicked(MenuOptionClicked event)
+	{
+	
+	}
+	
 	public void reset()
 	{
 	
